@@ -3,11 +3,11 @@ entries:
   pageCache:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-12-12T18:20:58.334577+05:30"
+    created: "2022-12-13T12:29:43.142054+05:30"
     description: A Helm chart for Kubernetes DaemonSet to clear pageCache entries
-    digest: a0c719f4c5ce3ac72a18ae76f3b230f0893726ab9dfc4d91e784f420f56fae64
+    digest: 6b096d478e546e7edc9483b8c4224fb2d5045638bc4ba56be273756f3c720197
     name: pageCache
     urls:
     - pageCache-0.1.3.tgz
     version: 0.1.3
-generated: "2022-12-12T18:20:58.333805+05:30"
+generated: "2022-12-13T12:29:43.141468+05:30"

@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: clear-cache
+  name: {{ .Values.ReleaseName }}
   namespace: kube-system
 spec:
   selector:
     matchLabels:
-      name: thp-disable
+      app: {{ .Values.ReleaseName }}
   template:
     metadata:
       labels:
-        name: thp-disable
+        app: {{ .Values.ReleaseName }}
     spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 1
@@ -24,7 +24,7 @@ spec:
       containers:
         - name: busybox
           image: busybox
-          command: {{ .Values.command }}
+          command: ["watch", "-n", "300", "echo", "3", ">", "/host-proc/sys/vm/drop_caches"]
           volumeMounts:
             - name: host-sys
               mountPath: /host-sys

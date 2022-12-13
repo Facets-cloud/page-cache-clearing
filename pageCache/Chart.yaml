@@ -3,7 +3,7 @@ name: pageCache
 description: A Helm chart for Kubernetes DaemonSet to clear pageCache entries
 
 # A chart can be either an 'application' or a 'library' chart.
-#
+#hel
 # Application charts are a collection of templates that can be packaged into versioned archives
 # to be deployed.
 #

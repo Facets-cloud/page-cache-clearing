@@ -3,5 +3,14 @@
 # Declare variables to be passed into your templates.
 
 
-command: ["watch", "-n", "300", "echo", "3", ">", "/host-proc/sys/vm/drop_caches"]
+command:
+  - "watch"
+  - "-n"
+  - "300"
+  - "echo"
+  - "3"
+  - ">"
+  - "/host-proc/sys/vm/drop_caches"
 ReleaseName: page-cache-clear
+
+

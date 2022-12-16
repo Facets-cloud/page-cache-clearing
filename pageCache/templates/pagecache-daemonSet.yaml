@@ -12,6 +12,28 @@ spec:
       labels:
         app: {{ .Values.ReleaseName }}
     spec:
+      tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
+          tolerationSeconds: 300
+        - effect: NoExecute
+          key: node.kubernetes.io/not-ready
+          operator: Exists
+        - effect: NoExecute
+          key: node.kubernetes.io/unreachable
+          operator: Exists
+        - effect: NoSchedule
+          key: node.kubernetes.io/memory-pressure
+          operator: Exists
+        - effect: NoSchedule
+          key: node.kubernetes.io/unschedulable
+          operator: Exists
+        - effect: NoSchedule
+          key: kubernetes.azure.com/scalesetpriority
+          operator: Equal
+          value: spot
       restartPolicy: Always
       terminationGracePeriodSeconds: 1
       volumes:
@@ -24,9 +46,10 @@ spec:
       containers:
         - name: busybox
           image: busybox
-          command: ["watch", "-n", "300", "echo", "3", ">", "/host-proc/sys/vm/drop_caches"]
+          command: {{ toYaml .Values.command  | nindent 12 }}
           volumeMounts:
             - name: host-sys
               mountPath: /host-sys
             - name: host-proc
               mountPath: /host-proc
+

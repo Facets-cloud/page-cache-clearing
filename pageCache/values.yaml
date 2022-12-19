@@ -11,6 +11,9 @@ command:
   - "3"
   - ">"
   - "/host-proc/sys/vm/drop_caches"
-ReleaseName: page-cache-clear
+ReleaseName: page-cache
+AppName: page-cache-clearing
+PriorityClassName: page-cache-pc-test
+
 
 

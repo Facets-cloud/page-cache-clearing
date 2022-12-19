@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: {{ .Values.ReleaseName }}
-  namespace: kube-system
+  name: {{ .Values.AppName }}
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -12,21 +12,15 @@ spec:
       labels:
         app: {{ .Values.ReleaseName }}
     spec:
+      priorityClassName: {{ .Values.PriorityClassName }}
+      nodeSelector:
+        kubernetes.io/os: linux
       tolerations:
         - key: CriticalAddonsOnly
           operator: Exists
         - effect: NoExecute
           operator: Exists
           tolerationSeconds: 300
-        - effect: NoExecute
-          key: node.kubernetes.io/not-ready
-          operator: Exists
-        - effect: NoExecute
-          key: node.kubernetes.io/unreachable
-          operator: Exists
-        - effect: NoSchedule
-          key: node.kubernetes.io/memory-pressure
-          operator: Exists
         - effect: NoSchedule
           key: node.kubernetes.io/unschedulable
           operator: Exists

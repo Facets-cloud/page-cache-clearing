@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  callback:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-12-20T15:58:57.136619+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 65eb3a71c204eca5c07d7d689857f9ca13fd43c428ebb0ea46f903f98a6421a2
+    name: callback
+    type: application
+    urls:
+    - callback-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-12-20T15:58:57.136041+05:30"
